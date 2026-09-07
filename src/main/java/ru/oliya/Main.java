@@ -1,5 +1,6 @@
 package ru.oliya;
 
+import chain.*;
 import strategy.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -22,5 +23,22 @@ public class Main {
         DeliveryStrategy deliveryStrategy3 = new CdekDelivery();
         OrderService orderService3 = new OrderService(deliveryStrategy3);
         orderService3.deliverOrder();
+
+
+        AuthorizationCheck authorizationCheck = new AuthorizationCheck();
+        AvailabilityCheck availabilityCheck = new AvailabilityCheck();
+        PrescriptionCheck prescriptionCheck = new PrescriptionCheck();
+        AddressCheck addressCheck = new AddressCheck();
+
+        Order order = new Order(true,
+                true, true, true);
+
+        authorizationCheck.setNext(availabilityCheck);
+        availabilityCheck.setNext(prescriptionCheck);
+        prescriptionCheck.setNext(addressCheck);
+
+        authorizationCheck.check(order);
     }
+
+
 }
