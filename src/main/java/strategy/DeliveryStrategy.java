@@ -1,6 +1,6 @@
 package strategy;
 
-// Создание паттерна — способ доставки
+// Общий контракт для всех способов доставки
 
 public interface DeliveryStrategy {
     void deliver();

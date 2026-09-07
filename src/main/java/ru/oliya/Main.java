@@ -12,11 +12,15 @@ public class Main {
         orderService.deliverOrder();
 
         DeliveryStrategy deliveryStrategy1 = new PostamatDelivery();
-        OrderService orderService1 = new OrderService(deliveryStrategy);
-        orderService.deliverOrder();
+        OrderService orderService1 = new OrderService(deliveryStrategy1);
+        orderService1.deliverOrder();
 
         DeliveryStrategy deliveryStrategy2 = new PickupDelivery();
-        OrderService orderService2 = new OrderService(deliveryStrategy);
-        orderService.deliverOrder();
+        OrderService orderService2 = new OrderService(deliveryStrategy2);
+        orderService2.deliverOrder();
+
+        DeliveryStrategy deliveryStrategy3 = new CdekDelivery();
+        OrderService orderService3 = new OrderService(deliveryStrategy3);
+        orderService3.deliverOrder();
     }
 }
