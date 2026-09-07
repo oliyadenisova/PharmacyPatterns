@@ -1,5 +1,7 @@
 package strategy;
 
+//метод доставки – постамат
+
 public class PostamatDelivery implements DeliveryStrategy {
     @Override
     public void deliver() {
