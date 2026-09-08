@@ -1,5 +1,6 @@
 package ru.oliya;
 
+import builder.Product;
 import chain.*;
 import strategy.*;
 
@@ -24,6 +25,7 @@ public class Main {
         OrderService orderService3 = new OrderService(deliveryStrategy3);
         orderService3.deliverOrder();
 
+        System.out.println();
 
         AuthorizationCheck authorizationCheck = new AuthorizationCheck();
         AvailabilityCheck availabilityCheck = new AvailabilityCheck();
@@ -38,7 +40,34 @@ public class Main {
         prescriptionCheck.setNext(addressCheck);
 
         authorizationCheck.check(order);
-    }
 
+        System.out.println();
+
+        Product product = new Product.Builder()
+                .name("Парацетамол")
+                .dosage("500 мг")
+                .manufacturer("Фармстандарт, РФ")
+                .price(150)
+                .rating(4.8)
+                .thermolabileDrug(false)
+                .prescriptionRequired(false)
+                .deliveryAvailable(true)
+                .build();
+        product.printProduct();
+
+        System.out.println();
+
+        Product product1 = new Product.Builder()
+                .name("Нурофен")
+                .dosage("400 мг")
+                .manufacturer("Санофи, Франция")
+                .price(359)
+                .rating(4.4)
+                .thermolabileDrug(false)
+                .prescriptionRequired(false)
+                .deliveryAvailable(true)
+                .build();
+        product1.printProduct();
+    }
 
 }
