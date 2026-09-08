@@ -1,5 +1,7 @@
 package chain;
 
+// Проверка авторизации пользователя
+
 public class AuthorizationCheck extends OrderCheck {
 
     @Override

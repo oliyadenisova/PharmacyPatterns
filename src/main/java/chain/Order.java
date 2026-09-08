@@ -1,5 +1,7 @@
 package chain;
 
+// Модель заказа с данными для последовательной проверки
+
 public class Order {
     private boolean authorized;
     private boolean inStock;

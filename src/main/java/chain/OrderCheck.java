@@ -1,5 +1,7 @@
 package chain;
 
+// Базовый класс для последовательной проверки заказа
+
 public abstract class OrderCheck {
 
     private OrderCheck next;
@@ -9,7 +11,7 @@ public abstract class OrderCheck {
         return next;
     }
 
-    public void check (Order order){
+    public void check(Order order){
         if (process(order) && next != null) {
             next.check(order);
         }
