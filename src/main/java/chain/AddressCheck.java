@@ -1,9 +1,11 @@
 package chain;
 
+// Проверка корректности адреса доставки
+
 public class AddressCheck extends OrderCheck {
     @Override
     protected boolean process(Order order) {
-        if (!order.isAddressCorrect ()){
+        if (!order.isAddressCorrect()) {
             System.out.println("Ошибка: адрес введен не верно");
             return false;
         }

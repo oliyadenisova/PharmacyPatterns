@@ -1,5 +1,7 @@
 package chain;
 
+// Прверка наличия товара
+
 public class AvailabilityCheck extends OrderCheck {
     @Override
     protected boolean process(Order order) {
