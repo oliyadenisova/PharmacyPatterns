@@ -8,6 +8,6 @@ public class OrderService {
     }
 
     public void deliverOrder(){
-      deliveryStrategy.deliver();
+        deliveryStrategy.deliver();
     }
 }
