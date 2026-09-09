@@ -2,6 +2,7 @@ package ru.oliya;
 
 import builder.Product;
 import chain.*;
+import proxy.PrescriptionProxy;
 import strategy.*;
 import decorator.EveningDelivery;
 import decorator.ExpressDelivery;
@@ -119,15 +120,14 @@ public class Main {
 
         System.out.println();
 
-        // Пример использования паттерна Адаптер
+        // Пример совместного использования паттернов Adapter и Proxy
 
-        PrescriptionService prescriptionService =
-                new PrescriptionAdapter(new ExternalMedicalApi());
+        PrescriptionService adapter = new PrescriptionAdapter(new ExternalMedicalApi());
+        PrescriptionService prescriptionService = new PrescriptionProxy(adapter, true);
 
         PrescriptionPrinter.printResult(prescriptionService, "RX-458_1");
         PrescriptionPrinter.printResult(prescriptionService, "RX-123");
 
         System.out.println();
     }
-
 }
